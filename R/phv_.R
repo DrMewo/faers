@@ -405,7 +405,8 @@ phv_obsexp_shrink <- function(a, b, c, d, alpha = 0.05, alpha1 = 0.5, alpha2 = 0
 #' - <https://journal.r-project.org/archive/2017/RJ-2017-063/RJ-2017-063.pdf>
 #' @export
 #' @rdname phv_signal
-phv_ebgm <- function(a, b, c, d, alpha = 0.05, theta_init = NULL, squashing = TRUE) {
+#' ######源代码这里alpha = 0.05，但判断标准EBMGM05是单侧95%CI下限（5%分位数，也就是双侧90%的下限），所以这里改成alpha = 0.1
+phv_ebgm <- function(a, b, c, d, alpha = 0.1, theta_init = NULL, squashing = TRUE) {
     assert_phv_table(a, b, c, d)
     assert_bool(squashing)
     assert_data_frame(theta_init, null_ok = TRUE)
